@@ -1,7 +1,9 @@
 PWD   := $(shell pwd)
 KDIR  ?= /lib/modules/$(shell uname -r)/build/
-obj-m += mycaller.o
-mycaller-objs := mylib.o
+# Module name has to differ from xxx-objs files names.
+# Otherwise you'll met bunch of compilation errors.
+obj-m += mymodule.o
+mymodule-objs := mycaller.o mylib.o
 
 ccflags-y += -DDEBUG
 
